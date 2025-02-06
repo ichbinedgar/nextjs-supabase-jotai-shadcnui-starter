@@ -1,0 +1,65 @@
+{
+  "HomePage": {
+    "title": "Hoola",
+    "about": "Go to the about page"
+  },
+  "NotFoundPage": {
+    "description": "Por favor, verifique la barra de direcciones del navegador o utilice la navegación para ir a una página conocida.",
+    "title": "Página no encontrada"
+  },
+  "ForgotPassword": {
+    "resetPassword": "Restablecer la contraseña",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "signIn": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tú@ejemplo.com"
+  },
+  "Login": {
+    "signIn": "Iniciar sesión",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "signUp": "Regístrate",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tú@ejemplo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Tu contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "pendingText": "Iniciando sesión..."
+  },
+  "Signup": {
+    "signUp": "Regístrate",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "signIn": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tú@ejemplo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Tu contraseña",
+    "pendingText": "Registrándote..."
+  },
+  "AuthButton": {
+    "updateEnv": "Por favor, actualiza el archivo .env.local con la clave anónima y la URL",
+    "signIn": "Iniciar sesión",
+    "signUp": "Regístrate",
+    "greeting": "¡Hola, {email}!",
+    "signOut": "Cerrar sesión"
+  },
+  "Actions": {
+    "emailAndPasswordRequired": "Se requieren correo electrónico y contraseña",
+    "signupSuccessMessage": "¡Gracias por registrarte! Por favor, revisa tu correo para un enlace de verificación.",
+    "emailRequired": "Se requiere correo electrónico",
+    "couldNotResetPassword": "No se pudo restablecer la contraseña",
+    "checkEmailForResetLink": "Revisa tu correo para un enlace para restablecer tu contraseña.",
+    "passwordsRequired": "Se requieren contraseña y confirmación de contraseña",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden",
+    "passwordUpdateFailed": "La actualización de la contraseña falló",
+    "passwordUpdated": "Contraseña actualizada"
+  },
+  "ResetPassword": {
+    "resetPasswordTitle": "Restablecer la contraseña",
+    "resetPasswordSubtitle": "Por favor, introduce tu nueva contraseña a continuación.",
+    "newPasswordLabel": "Nueva contraseña",
+    "newPasswordPlaceholder": "Nueva contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirmar contraseña",
+    "resetPasswordButton": "Restablecer la contraseña"
+  }
+}

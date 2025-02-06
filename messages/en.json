@@ -1,0 +1,65 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "NotFoundPage": {
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
+    "title": "Page not found"
+  },
+  "ForgotPassword": {
+    "resetPassword": "Reset Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com"
+  },
+  "Login": {
+    "signIn": "Sign in",
+    "dontHaveAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "forgotPassword": "Forgot Password?",
+    "pendingText": "Signing In..."
+  },
+  "Signup": {
+    "signUp": "Sign up",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "pendingText": "Signing up..."
+  },
+  "AuthButton": {
+    "updateEnv": "Please update .env.local file with anon key and url",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "greeting": "Hey, {email}!",
+    "signOut": "Sign out"
+  },
+  "Actions": {
+    "emailAndPasswordRequired": "Email and password are required",
+    "signupSuccessMessage": "Thanks for signing up! Please check your email for a verification link.",
+    "emailRequired": "Email is required",
+    "couldNotResetPassword": "Could not reset password",
+    "checkEmailForResetLink": "Check your email for a link to reset your password.",
+    "passwordsRequired": "Password and confirm password are required",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "passwordUpdateFailed": "Password update failed",
+    "passwordUpdated": "Password updated"
+  },
+  "ResetPassword": {
+    "resetPasswordTitle": "Reset Password",
+    "resetPasswordSubtitle": "Please enter your new password below.",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "New password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "resetPasswordButton": "Reset Password"
+  }
+}
