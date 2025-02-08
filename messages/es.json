@@ -35,7 +35,7 @@
     "passwordPlaceholder": "Tu contraseña",
     "pendingText": "Registrándote..."
   },
-  "AuthButton": {
+  "Auth": {
     "updateEnv": "Por favor, actualiza el archivo .env.local con la clave anónima y la URL",
     "signIn": "Iniciar sesión",
     "signUp": "Regístrate",

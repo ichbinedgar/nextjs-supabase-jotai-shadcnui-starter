@@ -14,7 +14,7 @@ export default function AuthButton() {
   // Retrieve the current locale
   const locale = useLocale();
   // Initialize translations for the "AuthButton" namespace
-  const t = useTranslations("AuthButton");
+  const t = useTranslations("Auth");
   const [user] = useAtom(authUserAtom);
   const [hasValidEnv] = useAtom(hasValidEnvAtom);
   // If the environment variables aren’t configured, show a warning

@@ -28,8 +28,8 @@
       "@hooks/*": ["hooks/*"],
       "@context/*": ["context/*"],
       "@services/*": ["services/*"],
-      "@types/*": ["types/*"]
-      
+      "@types/*": ["types/*"],
+      "@ui/*": ["ui/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

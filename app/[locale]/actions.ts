@@ -113,10 +113,14 @@ export const resetPasswordAction = async (formData: FormData) => {
 }
 
 export const signOutAction = async (formData: FormData) => {
-  console.log('Signing out...', formData)
-
   // Get locale from form values
   const locale = formData.get('locale')?.toString() || 'en'
+  const supabase = await createClient()
+  await supabase.auth.signOut()
+  return redirect(`/${locale}/sign-in`)
+}
+
+export const signOutActionNavUser = async (locale: string) => {
   const supabase = await createClient()
   await supabase.auth.signOut()
   return redirect(`/${locale}/sign-in`)

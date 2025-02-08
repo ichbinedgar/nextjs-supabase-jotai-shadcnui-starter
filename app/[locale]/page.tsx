@@ -19,7 +19,7 @@ export default async function Home({ params }: PageProps) {
   const locale = resolvedParams.locale || "es"; // Provide a fallback locale
 
   // Check user authentication.
-  const user = await requireAuth({
+  const user = await requireAuth(locale,{
     disableRedirect: true,
   });
 

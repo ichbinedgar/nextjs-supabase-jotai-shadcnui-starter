@@ -1,18 +1,24 @@
-import Dashboard from "@/components/protected/dashboard";
-import { requireAuth } from "@/utils/supabase/auth.server";
+import Dashboard from '@/components/protected/dashboard'
+import { requireAuth } from '@/utils/supabase/auth.server'
 
- 
-export default async function ProtectedPage() {
+// Define an interface for the params object.
+interface Params {
+  locale: string;
+}
 
-  const user = await requireAuth();
+// Define the props interface.
+// The `params` property can be either a Promise or a direct object.
+interface PageProps {
+  params: Promise<Params> | Params;
+}
+
+export default async function ProtectedPage({ params }: PageProps) {
+  const { locale } = await params
+  const user = await requireAuth(locale)
 
   if (!user) {
-    return null; // Prevent rendering if not authenticated
+    return null // Prevent rendering if not authenticated
   }
- 
-  return (
-    <div>
-      <Dashboard user={user} />
-    </div>
-  );
+
+  return <Dashboard user={user} />
 }
