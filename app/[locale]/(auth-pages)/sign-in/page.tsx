@@ -4,7 +4,7 @@ import { FormMessage, Message } from "@/components/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
+import {Link} from '@/i18n/routing';
 import { getTranslations } from "next-intl/server";
 
 interface LoginProps {
@@ -28,7 +28,7 @@ export default async function Login({
       <h1 className="text-2xl font-medium">{t("signIn")}</h1>
       <p className="text-sm text-foreground">
         {t("dontHaveAccount")}{" "}
-        <Link className="text-foreground font-medium underline" href={`/${locale}/sign-up`}>
+        <Link className="text-foreground font-medium underline" href={`/sign-up`}>
           {t("signUp")}
         </Link>
       </p>
@@ -39,7 +39,7 @@ export default async function Login({
           <Label htmlFor="password">{t("password")}</Label>
           <Link
             className="text-xs text-foreground underline"
-            href={`/${locale}/forgot-password`}
+            href={`/forgot-password`}
           >
             {t("forgotPassword")}
           </Link>

@@ -27,7 +27,14 @@ export default function ClientProvider({ config, children }: ClientProviderProps
   store.set(authUserAtom, initialUser);
   store.set(hasValidEnvAtom, hasValidEnv);
 
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60, // 1 minute
+        // staleTime: 1000 * 60 * 5, // 5 minutes
+      },
+    },
+  });
 
   return <QueryClientProvider client={queryClient}><Provider store={store}>{children}</Provider></QueryClientProvider>;
 }

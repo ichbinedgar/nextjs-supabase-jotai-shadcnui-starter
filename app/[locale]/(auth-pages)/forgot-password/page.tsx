@@ -4,7 +4,7 @@ import { FormMessage, Message } from "@/components/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
+import {Link} from '@/i18n/routing';
 import { getTranslations } from "next-intl/server";
 
 interface ForgotPasswordProps {
@@ -32,7 +32,7 @@ export default async function ForgotPassword({
         <h1 className="text-2xl font-medium">{t("resetPassword")}</h1>
         <p className="text-sm text-secondary-foreground">
           {t("alreadyHaveAccount")}{" "}
-          <Link className="text-primary underline" href={`/${locale}/sign-in`}>
+          <Link className="text-primary underline" href={`/sign-in`}>
             {t("signIn")}
           </Link>
         </p>

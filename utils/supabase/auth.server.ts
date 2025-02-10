@@ -1,9 +1,9 @@
 // utils/auth.server.ts
-import { createClient } from '@/utils/supabase/server'
+import { createSupbaseServerClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
 export async function requireAuth(locale: string, options?: { redirectTo?: string; disableRedirect?: boolean }) {
-  const supabase = await createClient()
+  const supabase = await createSupbaseServerClient()
   const {
     data: { user }
   } = await supabase.auth.getUser()

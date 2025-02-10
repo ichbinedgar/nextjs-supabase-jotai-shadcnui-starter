@@ -1,24 +1,39 @@
-import Dashboard from '@/components/protected/dashboard'
-import { requireAuth } from '@/utils/supabase/auth.server'
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query'
+import { LocaleParams } from '@/utils/types';
+import useProfileQuery from '@/hooks/use-profile-query';
+import { requireAuth } from '@/utils/supabase/auth.server';
+import Dashboard from '@/components/protected/dashboard';
+import { createSupbaseServerClient } from '@/utils/supabase/server';
 
-// Define an interface for the params object.
-interface Params {
-  locale: string;
+interface SsrDashboardProps {
+  params: Promise<LocaleParams> | LocaleParams;
 }
 
-// Define the props interface.
-// The `params` property can be either a Promise or a direct object.
-interface PageProps {
-  params: Promise<Params> | Params;
-}
+export default async function SsrDashboard({ params }: SsrDashboardProps) {
+  const queryClient = new QueryClient()
+  const supabase = await createSupbaseServerClient();
 
-export default async function ProtectedPage({ params }: PageProps) {
-  const { locale } = await params
-  const user = await requireAuth(locale)
+   const { locale } = await params
+    const user = await requireAuth(locale)
+  
+    if (!user) {
+      return null // Prevent rendering if not authenticated
+    }
+  
 
-  if (!user) {
-    return null // Prevent rendering if not authenticated
-  }
+  await queryClient.prefetchQuery(useProfileQuery(
+    { userUuid: user.id, client: supabase }
+  ))
 
-  return <Dashboard user={user} />
+  return (
+    // Neat! Serialization is now as easy as passing props.
+    // HydrationBoundary is a Client Component, so hydration will happen there.
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Dashboard user={user} />
+    </HydrationBoundary>
+  )
 }

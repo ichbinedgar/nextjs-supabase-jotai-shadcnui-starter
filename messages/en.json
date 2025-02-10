@@ -33,7 +33,9 @@
     "emailPlaceholder": "you@example.com",
     "password": "Password",
     "passwordPlaceholder": "Your password",
-    "pendingText": "Signing up..."
+    "pendingText": "Signing up...",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name"
   },
   "Auth": {
     "updateEnv": "Please update .env.local file with anon key and url",
@@ -51,7 +53,8 @@
     "passwordsRequired": "Password and confirm password are required",
     "passwordsDoNotMatch": "Passwords do not match",
     "passwordUpdateFailed": "Password update failed",
-    "passwordUpdated": "Password updated"
+    "passwordUpdated": "Password updated",
+    "fullNameRequired": "Full name is required"
   },
   "ResetPassword": {
     "resetPasswordTitle": "Reset Password",

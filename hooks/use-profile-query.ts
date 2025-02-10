@@ -1,16 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
-import useSupabase from './use-supabase'
 import getProfileById from '@/queries/getProfileById'
+import { CustomSupbaseClient } from '@/utils/supabase/client'
 
-const useProfileQuery = (userUuid: string) => {
-  const client = useSupabase()
+type ProfileQuery = {
+  userUuid: string
+  client: CustomSupbaseClient
+}
+
+const useProfileQuery = ({ userUuid, client }: ProfileQuery) => {
   const queryKey = ['profile', userUuid]
 
   const queryFn = async () => {
     return getProfileById(client, userUuid).then((result) => result.data)
   }
 
-  return useQuery({ queryKey, queryFn })
+  return { queryKey, queryFn }
 }
 
 export default useProfileQuery

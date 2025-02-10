@@ -33,7 +33,9 @@
     "emailPlaceholder": "tú@ejemplo.com",
     "password": "Contraseña",
     "passwordPlaceholder": "Tu contraseña",
-    "pendingText": "Registrándote..."
+    "pendingText": "Registrándote...",
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "Introduce tu nombre completo"
   },
   "Auth": {
     "updateEnv": "Por favor, actualiza el archivo .env.local con la clave anónima y la URL",
@@ -51,7 +53,8 @@
     "passwordsRequired": "Se requieren contraseña y confirmación de contraseña",
     "passwordsDoNotMatch": "Las contraseñas no coinciden",
     "passwordUpdateFailed": "La actualización de la contraseña falló",
-    "passwordUpdated": "Contraseña actualizada"
+    "passwordUpdated": "Contraseña actualizada",
+    "fullNameRequired": "El nombre completo es requerido"
   },
   "ResetPassword": {
     "resetPasswordTitle": "Restablecer la contraseña",

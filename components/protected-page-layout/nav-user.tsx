@@ -1,12 +1,11 @@
 'use client'
 
-import {   ChevronsUpDown,   LogOut, Sparkles } from 'lucide-react'
+import {   ChevronsUpDown,   Key,   LogOut } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -15,6 +14,7 @@ import {
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@/components/ui/sidebar'
 import { useLocale, useTranslations } from 'next-intl'
 import { signOutActionNavUser } from '@/app/[locale]/actions'
+import {Link} from '@/i18n/routing';
 
 export function NavUser({
   user
@@ -27,6 +27,7 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar()
   const t = useTranslations('Auth')
+  const rt = useTranslations('ResetPassword')
   const locale = useLocale()
 
   return (
@@ -90,6 +91,12 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup> */}
             {/* <DropdownMenuSeparator /> */}
+             <DropdownMenuItem asChild>
+              <Link href={`/protected/reset-password`}>
+                <Key />
+                {rt('resetPasswordTitle')}
+              </Link>
+            </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {
                 signOutActionNavUser(locale)

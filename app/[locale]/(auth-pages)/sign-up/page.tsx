@@ -4,7 +4,7 @@ import { FormMessage, Message } from "@/components/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
+import {Link} from '@/i18n/routing';
 import { getTranslations } from "next-intl/server";
 
 interface SignupProps {
@@ -37,11 +37,21 @@ export default async function Signup({
       <h1 className="text-2xl font-medium">{t("signUp")}</h1>
       <p className="text-sm text-foreground">
         {t("alreadyHaveAccount")}{" "}
-        <Link className="text-primary font-medium underline" href={`/${locale}/sign-in`}>
+        <Link className="text-primary font-medium underline" href={`/sign-in`}>
           {t("signIn")}
         </Link>
       </p>
       <div className="flex flex-col gap-2">
+
+          {/* Campo FULL NAME */}
+        <Label htmlFor="fullName">{t("fullName")}</Label>
+        <Input
+          type="text"
+          name="fullName"
+          placeholder={t("fullNamePlaceholder")}
+          required
+        />
+
         <Label htmlFor="email">{t("email")}</Label>
         <Input name="email" placeholder={t("emailPlaceholder")} required />
         <Label htmlFor="password">{t("password")}</Label>
@@ -52,6 +62,7 @@ export default async function Signup({
           minLength={6}
           required
         />
+        
         <SubmitButton formAction={signUpAction} pendingText={t("pendingText")}>
           {t("signUp")}
         </SubmitButton>
