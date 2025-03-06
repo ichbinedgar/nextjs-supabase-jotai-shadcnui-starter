@@ -92,7 +92,7 @@ export function NavUser({
             </DropdownMenuGroup> */}
             {/* <DropdownMenuSeparator /> */}
              <DropdownMenuItem asChild>
-              <Link href={`/protected/reset-password`}>
+              <Link href={"/protected/reset-password"}>
                 <Key />
                 {rt('resetPasswordTitle')}
               </Link>

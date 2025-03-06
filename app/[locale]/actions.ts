@@ -21,10 +21,10 @@ export const signUpAction = async (formData: FormData) => {
   const origin = (await headers()).get('origin')
 
   if (!email || !password) {
-    return encodedRedirect('error', `/sign-up`, t('emailAndPasswordRequired'), locale)
+    return encodedRedirect('error', '/sign-up', t('emailAndPasswordRequired'), locale)
   }
   if (!fullName) {
-    return encodedRedirect('error', `/sign-up`, t('fullNameRequired'), locale)
+    return encodedRedirect('error', '/sign-up', t('fullNameRequired'), locale)
   }
 
   const { error } = await supabase.auth.signUp({
@@ -39,14 +39,15 @@ export const signUpAction = async (formData: FormData) => {
   })
 
   if (error) {
-    console.error(error.code + ' ' + error.message)
-    return encodedRedirect('error', `/sign-up`, error.message, locale)
-  } else {
-    return encodedRedirect('success', `/sign-up`, t('signupSuccessMessage'), locale)
+    console.error(`${error.code} ${error.message}`)
+    return encodedRedirect('error', '/sign-up', error.message, locale)
   }
+  return encodedRedirect('success', '/sign-up', t('signupSuccessMessage'), locale)
 }
 
 export const signInAction = async (formData: FormData) => {
+  const DEFAULT_LANGUAGE = routing.defaultLocale
+
   const t = await getTranslations('Actions')
   const email = formData.get('email') as string
   const password = formData.get('password') as string
@@ -60,16 +61,18 @@ export const signInAction = async (formData: FormData) => {
   })
 
   if (error) {
-    return encodedRedirect('error', `/sign-in`, error.message, locale)
+    return encodedRedirect('error', '/sign-in', error.message, locale)
   }
 
   return redirect({
-    href: `/protected`,
+    href: '/protected',
     locale: locale || DEFAULT_LANGUAGE
   })
 }
 
 export const forgotPasswordAction = async (formData: FormData) => {
+  const DEFAULT_LANGUAGE = routing.defaultLocale
+
   const t = await getTranslations('Actions')
   const email = formData.get('email')?.toString()
   // Get locale from form values
@@ -79,7 +82,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   const callbackUrl = formData.get('callbackUrl')?.toString()
 
   if (!email) {
-    return encodedRedirect('error', `/forgot-password`, t('emailRequired'), locale)
+    return encodedRedirect('error', '/forgot-password', t('emailRequired'), locale)
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -88,7 +91,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
 
   if (error) {
     console.error(error.message)
-    return encodedRedirect('error', `/forgot-password`, t('couldNotResetPassword'), locale)
+    return encodedRedirect('error', '/forgot-password', t('couldNotResetPassword'), locale)
   }
 
   if (callbackUrl) {
@@ -98,10 +101,12 @@ export const forgotPasswordAction = async (formData: FormData) => {
     })
   }
 
-  return encodedRedirect('success', `/forgot-password`, t('checkEmailForResetLink'), locale)
+  return encodedRedirect('success', '/forgot-password', t('checkEmailForResetLink'), locale)
 }
 
 export const resetPasswordAction = async (formData: FormData) => {
+  const DEFAULT_LANGUAGE = routing.defaultLocale
+
   const t = await getTranslations('Actions')
   // Get locale from form values
   const locale = formData.get('locale')?.toString() || DEFAULT_LANGUAGE
@@ -111,11 +116,11 @@ export const resetPasswordAction = async (formData: FormData) => {
   const confirmPassword = formData.get('confirmPassword') as string
 
   if (!password || !confirmPassword) {
-    return encodedRedirect('error', `/protected/reset-password`, t('passwordsRequired'), locale)
+    return encodedRedirect('error', '/protected/reset-password', t('passwordsRequired'), locale)
   }
 
   if (password !== confirmPassword) {
-    return encodedRedirect('error', `/protected/reset-password`, t('passwordsDoNotMatch'), locale)
+    return encodedRedirect('error', '/protected/reset-password', t('passwordsDoNotMatch'), locale)
   }
 
   const { error } = await supabase.auth.updateUser({
@@ -123,28 +128,30 @@ export const resetPasswordAction = async (formData: FormData) => {
   })
 
   if (error) {
-    return encodedRedirect('error', `/protected/reset-password`, t('passwordUpdateFailed'), locale)
+    return encodedRedirect('error', '/protected/reset-password', t('passwordUpdateFailed'), locale)
   }
 
-  return encodedRedirect('success', `/protected/reset-password`, t('passwordUpdated'), locale)
+  return encodedRedirect('success', '/protected/reset-password', t('passwordUpdated'), locale)
 }
 
 export const signOutAction = async (formData: FormData) => {
+  const DEFAULT_LANGUAGE = routing.defaultLocale
   // Get locale from form values
   const locale = formData.get('locale')?.toString() || DEFAULT_LANGUAGE
   const supabase = await createSupbaseServerClient()
   await supabase.auth.signOut()
   return redirect({
-    href: `/sign-in`,
+    href: '/sign-in',
     locale: locale || DEFAULT_LANGUAGE
   })
 }
 
 export const signOutActionNavUser = async (locale: string) => {
+  const DEFAULT_LANGUAGE = routing.defaultLocale
   const supabase = await createSupbaseServerClient()
   await supabase.auth.signOut()
   return redirect({
-    href: `/sign-in`,
+    href: '/sign-in',
     locale: locale || DEFAULT_LANGUAGE
   })
 }

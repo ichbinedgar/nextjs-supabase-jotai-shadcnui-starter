@@ -1,5 +1,5 @@
 import getProfileById from '@/queries/getProfileById'
-import { CustomSupbaseClient } from '@/utils/supabase/client'
+import type { CustomSupbaseClient } from '@/utils/supabase/client'
 
 type ProfileQuery = {
   userUuid: string
